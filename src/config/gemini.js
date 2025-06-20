@@ -6,7 +6,7 @@ import {
   GoogleGenAI,
 } from '@google/genai';
 
-async function main(prompt) {
+async function service(prompt) {
   const ai = new GoogleGenAI({
     apiKey: "AIzaSyA7zOuWs5DKW0BmYDPWSgLJYLehMFPgul4",
   });
@@ -19,7 +19,7 @@ async function main(prompt) {
       role: 'user',
       parts: [
         {
-          text: `prompt`,
+          text: `${prompt}`,
         },
       ],
     },
@@ -36,4 +36,4 @@ async function main(prompt) {
   }
 }
 
-export default main;
+export default service;
