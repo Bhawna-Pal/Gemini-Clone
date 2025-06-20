@@ -7,7 +7,8 @@ import {
 } from '@google/genai';
 
 async function service(prompt) {
-  const ai = new GoogleGenAI({
+  try {
+      const ai = new GoogleGenAI({
     apiKey: "AIzaSyA7zOuWs5DKW0BmYDPWSgLJYLehMFPgul4",
   });
   const config = {
@@ -34,6 +35,10 @@ async function service(prompt) {
   for await (const chunk of response) {
     console.log(chunk.text);
   }
+} catch (error) {
+ console.log(error)
+}
+  
 }
 
 export default service;
