@@ -34,6 +34,10 @@ async function service(prompt) {
   let fileIndex = 0;
   for await (const chunk of response) {
     console.log(chunk.text);
+    
+   return chunk.text
+ 
+  
   }
 } catch (error) {
  console.log(error)
