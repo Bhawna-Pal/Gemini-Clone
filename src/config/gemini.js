@@ -30,15 +30,14 @@ async function service(prompt) {
       contents,
     });
 
+    let result = "";
     for await (const chunk of response) {
-      console.log(chunk.text);
-      
+      result += chunk.text;
     }
-    return response;
-
-  
+    return result;
   } catch (error) {
     console.log(error);
+    return "Something went wrong. Please try again.";
   }
 }
 

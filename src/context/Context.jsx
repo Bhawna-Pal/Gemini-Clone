@@ -11,22 +11,25 @@ const ContextProvider = (props) => {
      const [prevPrompts, setPrevPrompts] = useState([]);
      const [showResult, setShowResult] = useState(false);
      const [loading, setLoading] = useState(false);
-     const [resultData, setResultData] = useState("");
+     const [resultData, setResultData] = useState([]); 
       
 
-    const onSent = async() =>{
-      try{
-        setResultData("")
-        setLoading(true)
-        setShowResult(true)
-
-       const response = await service(input)
-       setResultData(response)
-       setLoading(false)
-       setInput("")
-       
-      }catch(error){
-         console.log("error is in context file :", error)
+    const onSent = async () => {
+      if (!input.trim()) return; 
+      setLoading(true);
+      setShowResult(false);
+      // setResultData(""); // clear previous result
+      try {
+        const response = await service(input); 
+        setResultData(prev => [...prev, response]); 
+        console.log("Response from service:", response);
+        setShowResult(true);
+        setInput(""); 
+      } catch (error) {
+        setResultData(prev => [...prev, "Something went wrong. Please try again."]);
+        setShowResult(true);
+      } finally {
+        setLoading(false);
       }
     }
 
