@@ -16,8 +16,9 @@ function Main() {
       </div>
       <div className="main-container">
 
-       {!showResult
-       ? <>
+       {!showResult 
+        ? (
+        <>
              <div className="greet">
             <p><span>Hello, Dev.</span></p>
             <p>How can I help you today ?</p>
@@ -41,10 +42,11 @@ function Main() {
             </div>
         </div>
        </>
-        :<div className='result'>
-
+        ): (<div className='result'>
+               <p>{...resultData}</p>
+               
         </div>
-       }
+       )}
 
         
         <div className="main-bottom">

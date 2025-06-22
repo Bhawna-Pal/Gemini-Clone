@@ -14,8 +14,8 @@ const ContextProvider = (props) => {
      const [resultData, setResultData] = useState("");
       
 
-    const onSent = async(prompt) =>{
-
+    const onSent = async() =>{
+      try{
         setResultData("")
         setLoading(true)
         setShowResult(true)
@@ -25,6 +25,9 @@ const ContextProvider = (props) => {
        setLoading(false)
        setInput("")
        
+      }catch(error){
+         console.log("error is in context file :", error)
+      }
     }
 
    
