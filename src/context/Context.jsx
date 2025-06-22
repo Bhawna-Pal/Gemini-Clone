@@ -14,6 +14,7 @@ const ContextProvider = (props) => {
      const [resultData, setResultData] = useState([]); 
       
 
+<<<<<<< Updated upstream
     const onSent = async () => {
       if (!input.trim()) return; 
       setLoading(true);
@@ -30,6 +31,21 @@ const ContextProvider = (props) => {
         setShowResult(true);
       } finally {
         setLoading(false);
+=======
+    const onSent = async() =>{
+      try{
+        setResultData("")
+        setLoading(true)
+        setShowResult(true)
+
+       const response = await service(input)
+       setResultData(...response)
+       setLoading(false)
+       setInput("")
+       
+      }catch(error){
+         console.log("error is in context file :", error)
+>>>>>>> Stashed changes
       }
     }
 
