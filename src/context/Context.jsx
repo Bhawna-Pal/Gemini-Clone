@@ -13,23 +13,37 @@ const ContextProvider = (props) => {
      const [loading, setLoading] = useState(false);
      const [resultData, setResultData] = useState([]); 
       
+     const clearPreviousResult = () => {
+      setResultData([]);
+     }
+     
      const delayPara = (index,nextWord) => {
          setTimeout(function () {
-            setResultData(prev => prev+nextWord)
+            // setResultData(prev => prev+nextWord)
+            setResultData(prev=>[...prev, nextWord])
          }, 75*index)
-     }
+     };
+
+      const newChat = () => {
+         setLoading(false);
+         setResultData([]);
+         setInput("");
+         setRecentPrompt("");
+         setShowResult(false);
+      }
 
     const onSent = async () => {
       if (!input.trim()) return;
       setLoading(true);
       setShowResult(true);
+      clearPreviousResult();
       let response;
        if (input !== undefined && input.trim() !== "") {
               response = await service(input);
              setRecentPrompt(input)
              }
        else {
-           setPrevPrompts(prev =>[...prev,input])
+           setPrevPrompts(prev =>[...prev, input])
            setRecentPrompt(input)
            response = await service(input)
        }
@@ -52,7 +66,7 @@ const ContextProvider = (props) => {
 
          for(let i=0; i< newResponseArray.length; i++) {
           const nextWord = newResponseArray[i];
-          delayPara(i,nextWord+" ");
+          delayPara(i, nextWord + " ");
          }
         // setResultData(prev => [...prev, newResponse2]); 
         console.log("Response from service:", response);
@@ -77,9 +91,10 @@ const ContextProvider = (props) => {
        setRecentPrompt,
        recentPrompt,
        loading, 
-       resultData, 
+       resultData: resultData.join(""), 
        input,
-       setInput
+       setInput,
+       newChat
     }
 
    return(

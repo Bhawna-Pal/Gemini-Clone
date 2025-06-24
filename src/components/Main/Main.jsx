@@ -92,12 +92,12 @@ function Main() {
             <div>
               <img src={assets.gallery_icon} alt="Gallery Icon" />
               <img src={assets.mic_icon} alt="Mic Icon" />
-              <img
+              {input?<img
                 onClick={() => !loading && onSent()}
                 src={assets.send_icon}
                 alt="Send Icon"
                 style={{ cursor: loading ? "not-allowed" : "pointer", opacity: loading ? 0.5 : 1 }}
-              />
+              />:null}
             </div>
           </div>
           <p className="bottom-info">
