@@ -24,10 +24,10 @@ const ContextProvider = (props) => {
       setLoading(true);
       setShowResult(true);
       let response;
-       if (prompt !== undefined) {
-            response = await service(prompt);
-            setRecentPrompt(prompt)
-       } 
+       if (input !== undefined && input.trim() !== "") {
+              response = await service(input);
+             setRecentPrompt(input)
+             }
        else {
            setPrevPrompts(prev =>[...prev,input])
            setRecentPrompt(input)
