@@ -2,7 +2,7 @@
 import React, { useContext } from 'react'
 import './Main.css'
 import { assets } from '../../assets/assets'
-import Response from '../Input/Response'
+import Response  from '../Input/Response'
 import { Context } from '../../context/Context'
 
 
