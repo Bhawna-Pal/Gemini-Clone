@@ -96,7 +96,7 @@ function Main() {
                 onClick={() => !loading && onSent()}
                 src={assets.send_icon}
                 alt="Send Icon"
-                style={{ cursor: loading ? "not-allowed" : "pointer", opacity: loading ? 0.5 : 1 }}
+                // style={{ cursor: loading ? "not-allowed" : "pointer", opacity: loading ? 0.5 : 1 }}
               />:null}
             </div>
           </div>
