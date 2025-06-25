@@ -148,6 +148,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-top: 20px;
 }
 .loader hr{
     border-radius: 4px;
@@ -157,6 +158,7 @@
     background-size: 800px 50px;
     height: 20px;
     animation: loader 3s infinite linear reverse;
+     
  
 }
 @keyframes loader {

@@ -30,7 +30,7 @@ function Main() {
       <div className="main-container">
 
 
-        {!resultData.length > 0 ? (
+        {!resultData.length > 0  && !loading ? (
           <>
             <div className="greet">
               <p><span>Hello, Dev.</span></p>
@@ -65,13 +65,13 @@ function Main() {
               <img src={assets.gemini_icon} alt="" /> 
             
               {loading
-              ?<div className='loader'>
+              ? (<div className='loader'>
                 <hr />
                 <hr />
                 <hr />
               </div>
-              : <p dangerouslySetInnerHTML={{__html:resultData}}></p>
-              }
+              ): (<p dangerouslySetInnerHTML={{__html:resultData}}></p>
+              )}
                {/* {(
               <Response resultData={resultData} />
             )} */}
