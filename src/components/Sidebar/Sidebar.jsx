@@ -35,7 +35,7 @@ const Sidebar = () => {
           
         </div>
         :null
-}
+      }
       </div>
       <div className="bottom">
       <div className="bottom-item recent-entry">
