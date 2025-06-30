@@ -57,12 +57,10 @@ function Main() {
           </>
         ) : (
           <div className="result-section">
-            { recentPrompt && (
             <div className="result-title">
                  <img src={assets.user_icon} alt="" />
                  <p>{recentPrompt}</p>
                 </div>
-                )}
             <div className="result-data">
               <img src={assets.gemini_icon} alt="" /> 
             
